@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""starts a flask web app that returns a greeting"""
+""" starts a flask web app that returns a greeting """
 
 from flask import Flask, render_template
 from models import storage
@@ -10,14 +10,14 @@ app = Flask(__name__)
 
 @app.route('/states', strict_slashes=False)
 def states():
-    """function that displays an HTML page with states"""
+    """ function that displays an HTML page with states """
     states = storage.all(State)
     return render_template('9-state.html', states=states, mode='all')
 
 
 @app.route('/states/<id>', strict_slashes=False)
 def state_by_id(id):
-    """function that displays an HTML page with cities of a state"""
+    """ function that displays an HTML page with cities of a state """
     for state in storage.all(State).values():
         if state.id == id:
             return render_template('9-states.html', states=state, mode='id')
@@ -26,7 +26,7 @@ def state_by_id(id):
 
 @app.teardown_appcontext
 def teardown(self):
-    """closes session"""
+    """ closes session """
     storage.close()
 
 if __name__ == '__main__':
