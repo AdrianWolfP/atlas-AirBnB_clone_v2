@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Starts a flask web app that returns a greeting"""
+"""starts a flask web app that returns a greeting"""
 
 from flask import Flask, render_template
 from models import storage
