@@ -33,7 +33,7 @@ class FileStorage:
         objects = {}
         if cls:
             for obj in self.__objects:
-                if isinstance(self.__objects[obj]) == cls:
+                if isinstance(self.__objects[obj]), cls:
                     objects[obj] = self.__objects[obj]
         else:
             objects = self.__objects
